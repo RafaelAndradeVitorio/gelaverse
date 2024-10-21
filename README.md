@@ -8,4 +8,6 @@ Até o momento construi:
  - Consultas de 2 APIs publucas e renderização no template.
  - Filtro de categoria (Na api de filmes).
  - Paginação
+
+obs:
 Até o momento não FINALIZEI nenhum componente. A intenção principal é por em prática coisas que acredito ser importantes para um jr saber.
