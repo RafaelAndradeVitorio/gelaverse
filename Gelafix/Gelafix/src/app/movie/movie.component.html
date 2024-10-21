@@ -1,0 +1,40 @@
+<!-- @for (movie of movies; track $index) {
+    <img [src]="getFullImageUrl(movie.poster_path)" alt="">
+    <h3>{{movie.title}}</h3>
+} -->
+
+<section class="text-gray-600 body-font">
+  <header class="w-screen flex flex-row justify-between px-10">
+    <div>
+      <img src="https://fontmeme.com/permalink/241018/dbb411d26f8caca1d9f7ce4dc83b1d02.png" class="max-w-36" alt="">
+    </div>
+    <form class="w-96">
+      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Selecione uma categoria</label>
+      <select id="countries" class="w-96" (change)="loadFilteredMovies($event)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+        <option value="All" selected>Todos</option>
+        @for (genre of genres; track $index) {
+          <option [value]="genre.id"> {{genre.name}} </option>
+        }
+      </select>
+      <!-- <button (click)="loadFilteredMovies($event)"> aqui </button> -->
+    </form>
+    
+  </header>
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+        @for (movie of movies; track $index) {
+      <div class="xl:w-1/4 md:w-1/2 p-4">
+        <div class="bg-gray-100 p-6 rounded-lg">
+          <img class="h-80 rounded w-full object-contain object-center mb-6" [src]="getFullImageUrl(movie.poster_path)" alt="content">
+          <!-- <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3> -->
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{movie.title}}</h2>
+          @for (cat of movie.genre_ids; track $index) {
+            <p class="leading-relaxed text-base">{{movie.genre_ids[$index]}}</p>
+          }
+        </div>
+      </div>
+      
+    }
+    </div>
+  </div>
+</section>
